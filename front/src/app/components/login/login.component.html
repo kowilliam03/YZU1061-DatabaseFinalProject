@@ -1,0 +1,42 @@
+<div class="alert alert-danger" *ngIf='loginFailed'>
+  <p>登入失敗</p>
+</div>
+
+<div class="alert alert-success" *ngIf='userRegistered'>
+  <p>感謝註冊，現在可登入了</p>
+</div>
+
+<div style="text-align: center;padding: 30px;margin-top: 1%;border: 1px solid black;border-radius: 10px;width: 50%;margin-left: 25%">
+   <img src="https://eduzon.co/wp-content/uploads/2018/04/welcome-featured-image.jpg" class="page title" width="432" height="270">
+  <form novalidate #f="ngForm" (ngSubmit)= "login(f)" >
+    <div class="form-group">
+      <label for=""><h2><b>帳號</b></h2></label>
+      <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="userName"
+      #username="ngModel"
+      minlength="2"
+      required>
+    </div>
+    <div class="alert alert-danger" *ngIf="username.errors?.required && username.touched">
+      Username is required.
+    </div>
+    <div class="alert alert-danger" *ngIf="username.errors?.minlength && username.touched">
+      Minimum length is 2.
+    </div>
+
+    <div class="form-group">
+      <label for=""><h2><b>密碼</b></h2></label>
+      <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="password"
+      #userPassword="ngModel" minlength="4" required>
+    </div>
+    <div class="alert alert-danger" *ngIf="userPassword.errors?.required && userPassword.touched">
+      Password is required.
+    </div>
+    <div class="alert alert-danger" *ngIf="userPassword.errors?.minlength && userPassword.touched">
+      Minimum length is 4.
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-default" [disabled]="!f.valid">登入</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,59 @@
+<div class="alert alert-success" *ngIf='successMsg'>
+  <p>搜尋成功</p>
+</div>
+<br />
+<br />
+
+<div class="row" style="margin-top: 2%;width: 80%;margin:0 auto">
+  <div class="col-xs-12">
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <input width="50%" class="form-control mr-sm-2" #target type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" (click)="(titleSearch(target.value))" type="submit">書名</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" (click)="(authorSearch(target.value))" type="submit">學院</button>
+      </form>
+    </nav>
+    <div class="alert alert-danger" *ngIf='errorMsg'>
+      <p>查無資料，請重新搜尋</p>
+    </div>
+    <ng-container *ngIf='successEnd'>
+      <table class="table" *ngIf="param !== '/home'">
+        <tr bgcolor="#f9f9f9">
+          <th>學院</th>
+          <th>書名</th>
+          <th>作者</th>
+          <th>售價</th>
+          <th>商品描述</th>
+          <th>聯絡方式</th>
+        </tr>
+        <tr *ngFor="let page of search">
+          <td>
+            {{ page.college }}
+          </td>
+          <td>
+            {{ page.title }}
+          </td>
+          <td>
+            {{ page.author }}
+          </td>
+          <td>
+            {{ page.price }}
+          </td>
+          <td>
+            {{ page.desc }}
+          </td>
+          <td>
+            {{ page.connect }}
+          </td>
+        </tr>
+      </table>
+      <div *ngIf="param ==='/home'">
+        <div class="row" *ngIf="!hasSidebar">
+          <div class="col-xs-12">
+            <div [innerHTML]="pageBody"></div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

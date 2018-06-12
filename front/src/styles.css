@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+nav.admin {
+  background: purple;
+  position: fixed;
+  width: 120px;
+  top: 60px;
+  left: 0;
+  margin-bottom: 0 ;
+  z-index: 1;
+}
+
+nav.user {
+  background: rgb(55, 156, 238);
+  position: fixed;
+  width: 120px;
+  top: 60px;
+  left: 0;
+  margin-bottom: 0 ;
+  z-index: 1;
+}
+
+nav.user li {
+  float: none;
+}
+
+nav.user li a {
+  color: white !important;
+  font-weight: bold;
+}
+
+nav.admin li {
+  float: none;
+}
+
+nav.admin li a {
+  color: white !important;
+  font-weight: bold;
+}
+
+div.space {
+  padding-left: 180px;
+}

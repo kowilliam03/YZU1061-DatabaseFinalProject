@@ -1,0 +1,36 @@
+<div class="row" style="margin-top: 2%;width: 80%;margin:0 auto">
+    <div class="col-xs-12">
+      <ng-container>
+        <table class="table">
+          <tr bgcolor="#f9f9f9">
+            <th>學院</th>
+            <th>書名</th>
+            <th>作者</th>
+            <th>售價</th>
+            <th>商品描述</th>
+            <th>聯絡方式</th>
+          </tr>
+          <tr *ngFor="let page of search">
+            <td>
+              {{ page.college }}
+            </td>
+            <td>
+              {{ page.title }}
+            </td>
+            <td>
+              {{ page.author }}
+            </td>
+            <td>
+              {{ page.price }}
+            </td>
+            <td>
+              {{ page.desc }}
+            </td>
+            <td>
+              {{ page.connect }}
+            </td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+  </div>

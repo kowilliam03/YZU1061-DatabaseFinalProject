@@ -1,0 +1,39 @@
+<div class="alert alert-danger" *ngIf='userExists'>
+  <p>That username already exists, choose another.</p>
+</div>
+
+<div style="text-align: center;padding: 30px;margin-top: 1%;border: 1px solid black;border-radius: 10px;width: 50%;margin-left: 25%">
+  <img src="https://www.uwauc.org.au/wp-content/uploads/2016/03/needyou.jpg" width="432" height="270">
+  <br />
+  <form novalidate #f="ngForm" (ngSubmit)= "register(f)" >
+    <div class="form-group">
+      <label for=""><h2><b>帳號</b></h2></label>
+      <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="userName"
+      #username="ngModel"
+      minlength="2"
+      required>
+    </div>
+    <div class="alert alert-danger" *ngIf="username.errors?.required && username.touched">
+      此欄位必須填寫!!
+    </div>
+    <div class="alert alert-danger" *ngIf="username.errors?.minlength && username.touched">
+      帳號需要兩個字以上
+    </div>
+
+    <div class="form-group">
+      <label for=""><h2><b>密碼</b></h2></label>
+      <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="password"
+      #userPassword="ngModel" minlength="4" required>
+    </div>
+    <div class="alert alert-danger" *ngIf="userPassword.errors?.required && userPassword.touched">
+      此欄位必須填寫!!
+    </div>
+    <div class="alert alert-danger" *ngIf="userPassword.errors?.minlength && userPassword.touched">
+      密碼需要四個字以上
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-default" [disabled]="!f.valid">註冊</button>
+    </div>
+  </form>
+</div>

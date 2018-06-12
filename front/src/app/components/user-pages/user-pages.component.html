@@ -1,0 +1,33 @@
+<div class="alert alert-success" *ngIf='successMsg'>
+  <p>Success</p>
+</div>
+
+<div style="margin:0 auto;width: 70%">
+  <h1 class="page title" id="RGB">我的商品</h1>
+  <a routerLink="/add">上架</a>
+  <br />
+  <br />
+
+  <table class="table">
+    <tr bgcolor="#f9f9f9">
+      <th>所屬學院</th>
+      <th>書名</th>
+      <th>售價</th>
+      <th>下架</th>
+    </tr>
+    <tr *ngFor="let page of user">
+      <td>
+        {{ page.college }}
+      </td>
+      <td>
+        {{ page.title }}
+      </td>
+      <td>
+        {{ page.price }}
+      </td>
+      <td>
+        <a (click)="deleteProduct(page.title, page.owner)" routerLink="/admin/pages">Delete</a>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,65 @@
+<div class="alert alert-success" *ngIf='successMsg'>
+  <p>上架成功</p>
+</div>
+<div style="padding: 30px;margin-top: 1%;border: 1px solid black;border-radius: 10px;width: 60%;margin: 0px auto;margin-top: 5%">
+  <h1 class="page title" style="text-align: center"><b>上架商品</b></h1>
+  <a class="btn btn-primary" routerLink="/list">查看全部</a>
+  <br />
+  <br />
+
+  <form novalidate #f="ngForm" (ngSubmit)="addProduct(f)">
+    <div class="form-group">
+      *<label for="">學院:</label>
+      <input type="text" class="form-control" placeholder="學院" name="college" [(ngModel)]="college" #productcollege="ngModel" minlength="2"
+        required>
+    </div>
+    <div class="alert alert-danger" *ngIf="productcollege.errors?.required && productcollege.touched">
+      此欄位必填
+    </div>
+
+    <div class="form-group">
+      *<label for="">書名:</label>
+      <input type="text" class="form-control" placeholder="書名" name="title" [(ngModel)]="title" #producttitle="ngModel" minlength="2"
+        required>
+    </div>
+    <div class="alert alert-danger" *ngIf="producttitle.errors?.required && producttitle.touched">
+      此欄位必填
+    </div>
+
+    <div class="form-group">
+      *<label for="">作者:</label>
+      <input type="text" class="form-control" placeholder="作者" name="author" [(ngModel)]="author" #productauthor="ngModel" minlength="2"
+        required>
+    </div>
+    <div class="alert alert-danger" *ngIf="productauthor.errors?.required && productauthor.touched">
+      此欄位必填
+    </div>
+
+    <div class="form-group">
+      *<label for="">價錢:</label>
+      <input type="text" class="form-control" placeholder="價錢" name="price" [(ngModel)]="price" #productprice="ngModel" minlength="2"
+        required>
+    </div>
+    <div class="alert alert-danger" *ngIf="productprice.errors?.required && productprice.touched">
+      此欄位必填
+    </div>
+
+    <div class="form-group">
+      <label for="">商品描述:</label>
+      <input type="text" class="form-control" placeholder="商品描述" name="desc" [(ngModel)]="desc" #pageTitle="ngModel" minlength="2">
+    </div>
+
+    <div class="form-group">
+      *<label for="">聯絡方式(留手機號碼或是E-mail):</label>
+      <input type="text" class="form-control" placeholder="聯絡方式" name="connect" [(ngModel)]="connect" #productconnect="ngModel" minlength="2"
+        required>
+    </div>
+    <div class="alert alert-danger" *ngIf="productconnect.errors?.required && productconnect.touched">
+      此欄位必填
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-default" [disabled]="!f.valid">上架</button>
+    </div>
+  </form>
+</div>
