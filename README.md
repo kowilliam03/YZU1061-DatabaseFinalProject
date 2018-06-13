@@ -3,3 +3,9 @@
 
 UCmsApi 開發環境 visual studio2017
 front 開發環境 visual studio code
+
+Angular CLI: 6.0.0
+Node: 8.9.4
+OS: win32 x64
+
+dotnet version 2.1.201
